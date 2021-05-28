@@ -18,4 +18,8 @@ export default class WeatherController {
   convertCelsius() {
     weathersService.convertCelsius()
   }
+  
+  convertFarenheit(){
+    weathersService.convertFarenheit()
+  }
 }
