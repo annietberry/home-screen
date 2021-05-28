@@ -2,8 +2,8 @@ import { ProxyState } from "../AppState.js"
 import { imagesService } from "../Services/ImagesServices.js"
 
 
-function _drawImage(){
-  document.getElementById('image').innerHTML = ProxyState.image
+function _drawImage() {
+  // document.getElementById('image').innerHTML = ProxyState.image
 }
 export default class ImageController {
   constructor() {
