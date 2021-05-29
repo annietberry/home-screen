@@ -14,7 +14,7 @@
     <title>inspire</title>
 </head>
 
-<body>
+<body style="">
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
@@ -25,26 +25,36 @@
     </header>
     <main>
         <div class="container-fluid">
-            <div class="row justify-content-end">
-                <div id='weather' class="d-flex justify-content-end col-3">
-                    Weather
+            <div class="row justify-content-end pt-4">
+                <div class="d-flex justify-content-end col-3">
+                    <!--NOTE the temp unit is being convered by the units -->
+                    <div class="row pt-4" onclick="app.weathersController.toggleType()">
+                        <div class="col">
+                            <p id='weather'></p>
+                        </div>
+                        <div class="col">
+                            <span id='weatherUnits'>Celsius</span>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
-            <div class="row">
+            <div class="row p-4">
                 <div class="col-4"></div>
-                <div class="col-4 d-flex justify-content-center">
+                <div id="clock" class="col-4 d-flex justify-content-center">
                     Clock
                 </div>
                 <div class="col-4"></div>
             </div>
-            <div class="row">
+            <div class="row pt-4">
                 <div class="col-3"></div>
                 <div id='quote' class="col-6 d-flex justify-content-center">
 
                 </div>
                 <div class="col-3 d-flex justify-content-end">To Do</div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center pt-2">
                 <div id="author" class="col d-flex justify-content-center">
                     AUTHOR
                 </div>
@@ -64,3 +74,5 @@
 </body>
 
 </html>
+
+<!--TODO change cursor type over clickable features-->

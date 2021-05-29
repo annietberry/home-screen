@@ -22,3 +22,8 @@ export const sandboxApi = axios.create({
   baseURL: "https://bcw-sandbox.herokuapp.com/api/Annie/todos",
   timeout: 10000
 })
+
+export const clockApi = axios.create({
+  baseURL: "http://worldtimeapi.org/api/timezone/America/Boise",
+  timeout: 10000
+})

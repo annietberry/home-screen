@@ -10,22 +10,21 @@ class WeathersService {
   convertCelsius() {
     let kelvin = ProxyState.weather
     let celsius = (kelvin - 273.1).toFixed(2)
-    ProxyState.weather = celsius
+    ProxyState.temp = celsius
+    console.log("Running Convert Celsius")
   }
 
   convertFarenheit() {
-    let celsius = ProxyState.weather
-    let farenheit = ((celsius * (9 / 5)) + 32).toFixed(2)
-    ProxyState.weather = farenheit
+    let kelvin = ProxyState.weather
+    // TODO CHANGE FORMULA TO CONVERT FROM KELVIN
+    let farenheit = ((kelvin * (9 / 5)) + 32).toFixed(2)
+    ProxyState.temp = farenheit
   }
 
   async getWeather() {
     let res = await weatherApi.get()
     console.log('initial weather response', res);
     ProxyState.weather = res.data.main.temp
-    console.log('Appstate - weather', ProxyState.weather)
-    this.convertCelsius()
-    console.log('Appstate - celsius', ProxyState.weather)
   }
 }
 

@@ -3,7 +3,10 @@ import { imagesService } from "../Services/ImagesServices.js"
 
 
 function _drawImage() {
-  // document.getElementById('image').innerHTML = ProxyState.image
+  //REFERENCE THE BODY
+  //ADD STYLE TO THE BODY
+  //SET BACKGROUND IMAGE TO IMAGE STORED IN STATE
+  document.body.style.backgroundImage = `url('${ProxyState.image}')`
 }
 export default class ImageController {
   constructor() {

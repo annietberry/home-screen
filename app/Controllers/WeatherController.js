@@ -2,24 +2,37 @@ import { ProxyState } from "../AppState.js"
 import { weathersService } from "../Services/WeathersServices.js"
 
 function _drawWeather() {
-  document.getElementById('weather').innerHTML = ProxyState.weather
+  if (ProxyState.isCelsius) {
+    weathersService.convertCelsius()
+
+  }
+  else {
+    weathersService.convertFarenheit()
+  }
+
+  weather.textContent = ProxyState.temp
+
+  weatherUnits.textContent = ProxyState.isCelsius ? 'celsius' : 'farenheit'
+
 }
+
+// function _drawWeatherUnits() {
+//   document.getElementById('weather-units').innerHTML = 'Celsius'
+// }
 export default class WeatherController {
   constructor() {
     console.log("Hello from the Weather Controller")
-    ProxyState.on('weather', _drawWeather)
+    ProxyState.on('isCelsius', _drawWeather)
+    // ProxyState.on('weather', _drawWeatherUnits)
     this.getWeather()
   }
 
-  getWeather() {
-    weathersService.getWeather()
+  async getWeather() {
+    await weathersService.getWeather()
+    _drawWeather()
   }
 
-  convertCelsius() {
-    weathersService.convertCelsius()
-  }
-  
-  convertFarenheit(){
-    weathersService.convertFarenheit()
+  toggleType() {
+    ProxyState.isCelsius = !ProxyState.isCelsius
   }
 }

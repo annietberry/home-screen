@@ -10,6 +10,7 @@ class ImagesService {
   async getImage() {
     let res = await imageApi.get()
     console.log('initial image response', res);
+    // ProxyState.image = `background-image: url('${res.data.url}')`
     ProxyState.image = res.data.url
     console.log('Appstate - image', ProxyState.image)
   }
