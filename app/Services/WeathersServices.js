@@ -17,7 +17,7 @@ class WeathersService {
   convertFarenheit() {
     let kelvin = ProxyState.weather
     // TODO CHANGE FORMULA TO CONVERT FROM KELVIN
-    let farenheit = ((kelvin * (9 / 5)) + 32).toFixed(2)
+    let farenheit = ((kelvin - 273.1) * (9 / 5) + 32).toFixed(2)
     ProxyState.temp = farenheit
   }
 

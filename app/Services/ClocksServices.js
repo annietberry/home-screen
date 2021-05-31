@@ -9,9 +9,9 @@ class ClocksService {
   }
 
   getNow() {
-    console.log("get now runs")
+    //console.log("get now runs")
     ProxyState.clock = Date.now()
-    console.log(ProxyState.clock)
+    //console.log(ProxyState.clock)
   }
 }
 
