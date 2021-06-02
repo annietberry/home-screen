@@ -12,6 +12,8 @@ function _draw() {
   let taskElm = document.getElementById('lists')
   let template = ''
 
+  console.log(tasks)
+
   tasks.forEach(task => {
     template += ` <li class="row align-items-center justify-content-between p-2">
         <input onclick="app.listsController.checkBox()" type="checkbox" id="input">
@@ -45,8 +47,13 @@ export default class TasksController {
   constructor() {
     console.log("drawing your tasks")
     ProxyState.on('tasks', _draw)
+    this.showTasks()
     loadState()
 
+  }
+
+  showTasks() {
+    tasksService.getTasks()
   }
 
   addTask(event) {

@@ -16,6 +16,12 @@ main {
 }
 
 
+.hide {
+  color: transparent;
+}
 
+.myDiv:hover + .hide{
+  color: red;
+}
 
 

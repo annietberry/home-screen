@@ -10695,4 +10695,12 @@ main {
   flex-grow: 1;
 }
 
+.hide {
+  color: transparent;
+}
+
+.myDiv:hover + .hide {
+  color: red;
+}
+
 /*# sourceMappingURL=main.css.map */
