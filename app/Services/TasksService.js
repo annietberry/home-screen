@@ -27,16 +27,13 @@ class TasksService {
   //     console.log(error);
   //   }
   // }
-  
+
 
   async addTask(newTask) {
-    console.log('task at service', newTask)
-    ProxyState.tasks = [...ProxyState.tasks, new Task(newTask)]
-    console.log('all the tasks', ProxyState.tasks)
-    let taskToAdd = ProxyState.tasks[ProxyState.tasks.length - 1]
     try {
-      let res = await sandboxApi.post('', taskToAdd)
-      console.log("create task", res)
+      let res = await sandboxApi.post('', new Task(newTask))
+      ProxyState.tasks = [...ProxyState.tasks, res.data]
+      console.log("All tasks", ProxyState.tasks)
     }
     catch (error) {
       console.log(error)
@@ -77,8 +74,9 @@ class TasksService {
     }
   }
   async removeTask(taskName) {
+    //TODO change to search by Id
     try {
-      let foundTask = ProxyState.tasks.find(t => t.description == taskName)
+      let foundTask = await ProxyState.tasks.find(t => t.description == taskName)
       console.log(foundTask)
       let res = await sandboxApi.delete(foundTask.id)
       this.getTasks()
@@ -94,19 +92,25 @@ class TasksService {
 
   //ADD IN FOR COMPLETED.
   // .post('object ', updatew/updatedinfo)
- 
-    // async updateTask(task) {
-    //     // @ts-ignore
-    //     let res = await axios.put(sandboxApi + task.co, formData)
-        
-    //     let indexOfCarToBeUpdated = ProxyState.cars.findIndex(c => c.id == formData.id)
-    //     ProxyState.cars.splice(indexOfCarToBeUpdated,1, new Car(res.data))
-    //     ProxyState.cars = ProxyState.cars
-    // }
 
-    async updateTask(){
-      let res = await axios.put()
-    }
+  // async updateTask(task) {
+  //     // @ts-ignore
+  //     let res = await axios.put(sandboxApi + task.co, formData)
+
+  //     let indexOfCarToBeUpdated = ProxyState.cars.findIndex(c => c.id == formData.id)
+  //     ProxyState.cars.splice(indexOfCarToBeUpdated,1, new Car(res.data))
+  //     ProxyState.cars = ProxyState.cars
+  // }
+
+  async updateTask() {
+    // get info to change
+    //access id of thing needed to be changed
+    //axios put payload(id, completed)
+    //check response
+    //update proxyState with what you recieved from the response.
+    // let res = await axios.put()
+    console.log("updating")
+  }
 }
 
 export const tasksService = new TasksService()

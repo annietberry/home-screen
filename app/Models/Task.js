@@ -4,7 +4,7 @@ export default class Task {
 
     this.description = description
     this.completed = completed
-    this.id = id || generateId()
+    this.id = id
     this.user = user
 
   }
