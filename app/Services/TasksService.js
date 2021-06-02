@@ -102,7 +102,19 @@ class TasksService {
   //     ProxyState.cars = ProxyState.cars
   // }
 
-  async updateTask() {
+  async updateTask(taskId) {
+    try {
+      let foundTask = await ProxyState.tasks.find(t => t.id == taskId)
+      console.log(foundTask)
+      let res = await sandboxApi.put(taskId, { completed: !foundTask.completed })
+      this.getTasks()
+
+      console.log("******************")
+      console.log(res)
+    }
+    catch (error) {
+      console.log(error)
+    }
     // get info to change
     //access id of thing needed to be changed
     //axios put payload(id, completed)

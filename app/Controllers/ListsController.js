@@ -28,7 +28,7 @@ function _draw() {
 
     tasks.forEach(task => {
       template += ` <li class="row align-items-center justify-content-between p-2">
-        <input onclick="app.listsController.checkBox()" type="checkbox" id="input">
+        <input onclick="app.tasksController.updateTask('${task.id}')" type="checkbox" id="input">
         <label for="task1">
             <div class="col d-flex ">${task.name}
             </div>
@@ -149,10 +149,7 @@ export default class ListsController {
 
   // }
 
-  checkBox() {
-    this.completed = !this.completed
 
-  }
 
 }
 
