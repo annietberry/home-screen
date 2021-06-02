@@ -67,7 +67,13 @@ class TasksService {
     try {
       let res = await sandboxApi.get()
       console.log('my tasks', res)
-      ProxyState.tasks = res.data.map(t => new Task(t))
+      ProxyState.tasks = res.data.map(t => {
+        if(t.completed){
+          ProxyState.completed++
+        }
+        return new Task(t)
+      })
+
       console.log('my tasks in ProxyState', ProxyState.tasks)
     } catch (error) {
       console.log(error)

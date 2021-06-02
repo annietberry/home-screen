@@ -4,11 +4,17 @@ import { loadState } from '../Utils/LocalStorage.js'
 import TasksController from "./TasksController.js"
 
 
+function _draw() {
+  tasksCompleted.innerText = ProxyState.completed
+  arrayLength.innerText = ProxyState.tasks.length
+}
+
 
 
 export default class ListsController {
   constructor() {
-  
+
+    ProxyState.on('tasks', _draw)
     loadState()
   }
 
