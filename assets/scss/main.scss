@@ -20,8 +20,16 @@ main {
   color: transparent;
 }
 
+
+
 .myDiv:hover + .hide{
   color:#5cb85c;
 }
+
+
+.tempDiv:hover{
+  cursor:pointer;
+}
+
 
 

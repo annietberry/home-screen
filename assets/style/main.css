@@ -10703,4 +10703,8 @@ main {
   color: #5cb85c;
 }
 
+.tempDiv:hover {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=main.css.map */
