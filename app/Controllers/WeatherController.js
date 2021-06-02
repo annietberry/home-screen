@@ -16,14 +16,11 @@ function _drawWeather() {
 
 }
 
-// function _drawWeatherUnits() {
-//   document.getElementById('weather-units').innerHTML = 'Celsius'
-// }
+
 export default class WeatherController {
   constructor() {
     console.log("Hello from the Weather Controller")
     ProxyState.on('isCelsius', _drawWeather)
-    // ProxyState.on('weather', _drawWeatherUnits)
     this.getWeather()
   }
 

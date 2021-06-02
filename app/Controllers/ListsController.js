@@ -1,15 +1,11 @@
 import { ProxyState } from '../AppState.js'
 import { listsService } from '../Services/ListsService.js'
 import { loadState } from '../Utils/LocalStorage.js'
-import TasksController from "./TasksController.js"
-
 
 function _draw() {
   tasksCompleted.innerText = ProxyState.completed
   arrayLength.innerText = ProxyState.tasks.length
 }
-
-
 
 export default class ListsController {
   constructor() {
@@ -39,27 +35,6 @@ export default class ListsController {
     listsService.removeList(listId)
   }
 
-  clickSweet(listId) {
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this list!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal("Poof! Your list has been deleted!", {
-            icon: "success",
-          });
-          console.log("this is your lists id, " + listId)
-          app.listsController.removeList(listId)
-        } else {
-          swal("Your list is safe!");
-        }
-      });
-  }
-
   clickSweetTask(taskName) {
     swal({
       title: "Are you sure?",
@@ -79,31 +54,5 @@ export default class ListsController {
           swal("Your list is safe!");
         }
       });
-
   }
-
-  // checkBoxes() {
-  //   // var inputElems = document.getElementById("input")
-  //   count
-
-  //   for (var i = 0; i < lists.length; i++) {
-  //     if (inputElems[i].type == "checkbox" && inputElems[i].checked == true) {
-  //       count++;
-  //       alert(count);
-  //     }
-
-  //   }
-  // }
-
-  // checkBoxes() {
-  //   if (document.getElementById('input').checked == true) {
-  //     var checkCount = checkCount++
-  //   }
-
-  // }
-
-
-
 }
-
-//app.tasksController.checkBoxes() for onclick line 32

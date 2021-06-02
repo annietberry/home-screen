@@ -1,7 +1,6 @@
 
 import { tasksService } from "../Services/TasksService.js"
 import { ProxyState } from '../AppState.js'
-
 import { loadState } from '../Utils/LocalStorage.js'
 
 
@@ -17,7 +16,7 @@ function _draw() {
     template += ` <li class="row align-items-center justify-content-between p-2">
         <input ${task.completed ? 'checked' : ''} onclick="app.tasksController.updateTask('${task.id}')" type="checkbox" id="input">
         <label for="task1">
-            <div class="col d-flex ">${task.description}
+            <div class="col d-flex">${task.description}
             </div>
         </label>
         <button onclick="app.listsController.clickSweetTask('${task.description}')" class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -40,14 +39,12 @@ function _draw() {
   taskElm.innerHTML = template
 }
 
-
 export default class TasksController {
   constructor() {
     console.log("drawing your tasks")
     ProxyState.on('tasks', _draw)
     this.showTasks()
     loadState()
-
   }
 
   showTasks() {
